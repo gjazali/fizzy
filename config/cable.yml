@@ -4,7 +4,7 @@ cable: &cable
     database:
       writing: cable
       reading: cable
-  polling_interval: 0.1.seconds
+  polling_interval: <%= Float(ENV.fetch("CABLE_POLLING_INTERVAL", 0.1)) %>.seconds
   message_retention: 1.day
 
 development: *cable

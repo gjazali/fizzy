@@ -157,6 +157,13 @@ If you do want to allow multiple accounts to be created in your instance, set `M
 
 Fizzy can sign people in through an OpenID Connect identity provider. To do so, set `SINGLE_SIGN_ON_ISSUER`, `SINGLE_SIGN_ON_CLIENT_ID`, `SINGLE_SIGN_ON_CLIENT_SECRET`, and `SINGLE_SIGN_ON_ADMIN_GROUP`. For all the steps, refer to the [Single sign-on with OpenID Connect](single-sign-on.md) documentation.
 
+#### Polling intervals (optional)
+
+Fizzy checks the database for new background jobs and live updates every 0.1 seconds. These checks continue even if Fizzy is idle. On a small server, you can set longer intervals to use less CPU.
+
+- `JOB_POLLING_INTERVAL`: The number of seconds between checks for new background jobs. The default is `0.1`.
+- `CABLE_POLLING_INTERVAL`: The number of seconds between checks for live updates. The default is `0.1`.
+
 ## Importing an existing Fizzy account
 
 You can move an account between Fizzy instances by exporting it on the old instance and uploading the export zip to the new one during signup.
